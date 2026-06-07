@@ -126,6 +126,15 @@
   .about-lead{font-family:var(--serif);font-size:24px;line-height:1.55;color:var(--ink);font-weight:400;margin-bottom:28px}
   .about-body p{color:var(--ink-soft);font-size:17px;margin-bottom:18px;line-height:1.75}
   .about-body p:last-child{margin-bottom:0}
+  .credential{
+    display:inline-flex;align-items:center;gap:11px;
+    margin-top:32px;padding:14px 20px;
+    background:var(--paper-2);border:1px solid var(--line);border-radius:10px;
+  }
+  .credential-ico{width:36px;height:36px;border-radius:7px;background:var(--accent);display:grid;place-items:center;flex-shrink:0}
+  .credential-ico svg{width:18px;height:18px;stroke:#fff;fill:none}
+  .credential-label{font-size:13px;font-weight:600;color:var(--ink);line-height:1.2}
+  .credential-meta{font-size:12px;color:var(--ink-mute);margin-top:2px}
 
   /* services */
   .services{background:var(--slate);color:#e8e9ee}
@@ -260,6 +269,13 @@
         <div class="about-body reveal">
           <p>The focus is enabling secure digital transformation by aligning cybersecurity strategy with business priorities, operational resilience and executive risk management, working closely with leadership teams and boards to strengthen organisational trust, resilience and security maturity while supporting innovation and growth.</p>
           <p>Known for building collaborative security cultures and pragmatic strategies that balance business enablement with effective risk management. A speaker, advisor and advocate for modern, business-aligned cybersecurity leadership.</p>
+          <div class="credential">
+            <div class="credential-ico"><svg viewBox="0 0 24 24" stroke-width="1.7"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg></div>
+            <div>
+              <div class="credential-label">Board Certificate</div>
+              <div class="credential-meta">BoardCompany · Developed with KPMG</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
