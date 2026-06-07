@@ -159,10 +159,11 @@
   .speak-venue{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:5px}
   .speak-title{font-family:var(--serif);font-size:17px;font-weight:500;color:var(--ink);line-height:1.3}
   .speak-meta{font-size:13px;color:var(--ink-mute);margin-top:4px}
-  .speaking-note{display:flex;align-items:center;gap:14px;padding:20px 24px;background:var(--white);border:1px solid var(--line);border-radius:10px;max-width:600px}
-  .speaking-note svg{flex-shrink:0;width:20px;height:20px;color:var(--accent)}
-  .speaking-note p{font-size:14.5px;color:var(--ink-soft);line-height:1.5}
-  .speaking-note strong{color:var(--ink)}
+  .speak-card-link{display:block;text-decoration:none;color:inherit}
+  .speak-card-link:hover .speak-card{border-color:var(--accent);box-shadow:0 4px 20px -8px rgba(29,78,216,.2)}
+  .speak-card-link:hover .speak-img{transform:scale(1.03)}
+  .speak-img{transition:transform .4s ease}
+  .rsac-badge{display:block;height:160px;width:auto}
   @media(max-width:880px){.speaking-grid{grid-template-columns:1fr}}
 
   /* approach */
@@ -314,18 +315,19 @@
             <div class="speak-meta">Panel speaker on cybersecurity leadership and resilience</div>
           </div>
         </div>
-        <div class="speak-card reveal">
-          <img class="speak-img" src="assets/rsac_clf.jpeg" alt="Elisabeth Høiland speaking at RSAC Cyber Leaders Forum">
-          <div class="speak-cap">
-            <div class="speak-venue">RSAC Conference</div>
-            <div class="speak-title">RSAC Cyber Leaders Forum</div>
-            <div class="speak-meta">Speaker and Program Committee member, Cyber Leadership Forum</div>
+        <a class="speak-card-link reveal" href="https://www.rsaconference.com/experts/elisabeth-hoiland" target="_blank" rel="noopener">
+          <div class="speak-card">
+            <img class="speak-img" src="assets/rsac_clf.jpeg" alt="Elisabeth Høiland speaking at RSAC Cyber Leaders Forum">
+            <div class="speak-cap">
+              <div class="speak-venue">RSAC Conference</div>
+              <div class="speak-title">RSAC Cyber Leaders Forum</div>
+              <div class="speak-meta">Speaker and Program Committee member, Cyber Leadership Forum</div>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
-      <div class="speaking-note reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg>
-        <p><strong>RSAC Cyber Leadership Forum Program Committee.</strong> Elisabeth serves as a member of the program committee, shaping the agenda for one of the world's leading cybersecurity leadership forums.</p>
+      <div class="reveal">
+        <img class="rsac-badge" src="assets/RSAC%20Cyber%20Leaders%20Badge.png" alt="RSAC Cyber Leaders Forum Program Committee badge">
       </div>
     </div>
   </section>
