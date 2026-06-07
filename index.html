@@ -66,8 +66,20 @@
 
   /* ---- about ---- */
   .about{padding-bottom:64px;}
+  .about-intro{display:flex;gap:44px;align-items:flex-start;margin-bottom:32px;}
+  .about-photo{
+    flex-shrink:0;width:148px;height:148px;
+    border-radius:50%;object-fit:cover;object-position:center top;
+    border:3px solid var(--line);
+  }
+  .about-text p{font-size:17px;color:var(--navy-soft);margin-bottom:18px;line-height:1.7;}
+  .about-text p:last-child{margin-bottom:0;}
   .about p{font-size:17px;color:var(--navy-soft);max-width:680px;margin-bottom:18px;line-height:1.7;}
   .about p:last-child{margin-bottom:0;}
+  @media (max-width:520px){
+    .about-intro{flex-direction:column;align-items:center;gap:24px;}
+    .about-photo{width:120px;height:120px;}
+  }
   .focus{
     display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;
     margin-top:38px;
@@ -149,9 +161,14 @@
 
   <section class="about reveal">
     <p class="eyebrow">About</p>
-    <p>Hoiland Advisory is the practice of Elisabeth H&oslash;iland, a business-oriented CISO with extensive experience leading enterprise security, cyber resilience, governance and risk transformation across global technology and industrial environments.</p>
-    <p>The focus is enabling secure digital transformation by aligning cybersecurity strategy with business priorities, operational resilience and executive risk management &mdash; working closely with leadership teams and boards to strengthen organizational trust, resilience and security maturity while supporting innovation and growth.</p>
-    <p>Known for building collaborative security cultures and pragmatic strategies that balance business enablement with effective risk management. Speaker, advisor and advocate for modern, business-aligned cybersecurity leadership.</p>
+    <div class="about-intro">
+      <img class="about-photo" src="assets/elisabeth.jpg" alt="Elisabeth Høiland">
+      <div class="about-text">
+        <p>Hoiland Advisory is the practice of Elisabeth H&oslash;iland, a business-oriented CISO with extensive experience leading enterprise security, cyber resilience, governance and risk transformation across global technology and industrial environments.</p>
+        <p>The focus is enabling secure digital transformation by aligning cybersecurity strategy with business priorities, operational resilience and executive risk management &mdash; working closely with leadership teams and boards to strengthen organizational trust, resilience and security maturity while supporting innovation and growth.</p>
+        <p>Known for building collaborative security cultures and pragmatic strategies that balance business enablement with effective risk management. Speaker, advisor and advocate for modern, business-aligned cybersecurity leadership.</p>
+      </div>
+    </div>
 
     <div class="focus">
       <div class="f">
