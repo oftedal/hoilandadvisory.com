@@ -46,7 +46,8 @@
   .nav-cta:hover{background:var(--navy);color:#fff;}
 
   /* ---- hero ---- */
-  .hero{padding:72px 0 64px;}
+  .hero{padding:72px 0 64px;display:flex;align-items:center;justify-content:space-between;gap:48px;}
+  .hero-body{flex:1;}
   .hero .shield-lg{margin-bottom:34px;}
   .hero h1{
     font-size:46px;font-weight:600;letter-spacing:-.5px;
@@ -55,6 +56,15 @@
   .hero .tag{
     font-size:19px;font-weight:400;color:var(--navy-soft);
     margin-top:22px;max-width:560px;line-height:1.5;
+  }
+  .hero-photo{
+    flex-shrink:0;width:200px;height:200px;
+    border-radius:50%;object-fit:cover;object-position:center top;
+    border:3px solid var(--line);
+  }
+  @media (max-width:680px){
+    .hero{flex-direction:column-reverse;align-items:flex-start;gap:28px;}
+    .hero-photo{width:120px;height:120px;align-self:center;}
   }
 
   .divider{height:1px;background:var(--line);margin:8px 0 56px;}
@@ -66,20 +76,11 @@
 
   /* ---- about ---- */
   .about{padding-bottom:64px;}
-  .about-intro{display:flex;gap:44px;align-items:flex-start;margin-bottom:32px;}
-  .about-photo{
-    flex-shrink:0;width:148px;height:148px;
-    border-radius:50%;object-fit:cover;object-position:center top;
-    border:3px solid var(--line);
-  }
+  .about-intro{margin-bottom:32px;}
   .about-text p{font-size:19px;color:var(--navy-soft);margin-bottom:18px;line-height:1.7;}
   .about-text p:last-child{margin-bottom:0;}
   .about p{font-size:19px;color:var(--navy-soft);max-width:680px;margin-bottom:18px;line-height:1.7;}
   .about p:last-child{margin-bottom:0;}
-  @media (max-width:520px){
-    .about-intro{flex-direction:column;align-items:center;gap:24px;}
-    .about-photo{width:120px;height:120px;}
-  }
   .focus{
     display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;
     margin-top:38px;
@@ -150,11 +151,14 @@
   </nav>
 
   <header class="hero reveal">
-    <div class="shield-lg">
-      <svg width="64" height="76" viewBox="0 0 44 52" role="img" aria-label="Hoiland Advisory"><path d="M22 3 L40 9 V26 C40 37 32 45 22 49 C12 45 4 37 4 26 V9 Z" fill="none" stroke="#1B2A3A" stroke-width="1.4"/><path d="M16 19 V33 M28 19 V33 M16 26 H28" stroke="#1B2A3A" stroke-width="2.1" stroke-linecap="round"/></svg>
+    <div class="hero-body">
+      <div class="shield-lg">
+        <svg width="64" height="76" viewBox="0 0 44 52" role="img" aria-label="Hoiland Advisory"><path d="M22 3 L40 9 V26 C40 37 32 45 22 49 C12 45 4 37 4 26 V9 Z" fill="none" stroke="#1B2A3A" stroke-width="1.4"/><path d="M16 19 V33 M28 19 V33 M16 26 H28" stroke="#1B2A3A" stroke-width="2.1" stroke-linecap="round"/></svg>
+      </div>
+      <h1>Business-aligned cybersecurity leadership.</h1>
+      <p class="tag">Securing AI-driven, cloud-native and SaaS transformation, aligning security strategy with business priorities, operational resilience and executive risk management.</p>
     </div>
-    <h1>Business-aligned cybersecurity leadership.</h1>
-    <p class="tag">Securing AI-driven, cloud-native and SaaS transformation, aligning security strategy with business priorities, operational resilience and executive risk management.</p>
+    <img class="hero-photo" src="assets/elisabeth.jpg" alt="Elisabeth Høiland">
   </header>
 
   <div class="divider"></div>
@@ -162,7 +166,6 @@
   <section class="about reveal">
     <p class="eyebrow">About</p>
     <div class="about-intro">
-      <img class="about-photo" src="assets/elisabeth.jpg" alt="Elisabeth Høiland">
       <div class="about-text">
         <p>Hoiland Advisory is the practice of Elisabeth H&oslash;iland, a business-oriented CISO with extensive experience leading enterprise security, cyber resilience, governance and risk transformation across global technology and industrial environments.</p>
         <p>The focus is enabling secure digital transformation by aligning cybersecurity strategy with business priorities, operational resilience and executive risk management, working closely with leadership teams and boards to strengthen organizational trust, resilience and security maturity while supporting innovation and growth.</p>
