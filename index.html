@@ -28,6 +28,48 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
+
+  /* ---------- password gate ---------- */
+  #pw-gate{
+    position:fixed;inset:0;z-index:9999;
+    background:var(--paper);
+    display:flex;align-items:center;justify-content:center;
+  }
+  #pw-gate .gate-box{
+    text-align:center;
+    max-width:360px;width:100%;padding:0 24px;
+  }
+  #pw-gate .gate-logo{
+    font-family:var(--serif);font-size:1.35rem;font-weight:600;
+    color:var(--ink);letter-spacing:-.01em;margin-bottom:32px;
+  }
+  #pw-gate .gate-logo span{color:var(--accent);}
+  #pw-gate label{
+    display:block;font-size:.75rem;font-weight:600;
+    letter-spacing:.08em;text-transform:uppercase;
+    color:var(--ink-mute);margin-bottom:10px;
+  }
+  #pw-gate input{
+    width:100%;padding:12px 16px;
+    border:1.5px solid var(--line);border-radius:8px;
+    background:var(--white);font-family:var(--sans);font-size:1rem;
+    color:var(--ink);outline:none;transition:border-color .18s;
+    text-align:center;letter-spacing:.05em;
+  }
+  #pw-gate input:focus{border-color:var(--accent);}
+  #pw-gate .gate-err{
+    font-size:.8rem;color:#c0392b;margin-top:10px;
+    min-height:1.2em;
+  }
+  #pw-gate button{
+    margin-top:18px;width:100%;padding:13px;
+    background:var(--accent-deep);color:#fff;
+    border:none;border-radius:8px;cursor:pointer;
+    font-family:var(--sans);font-size:.9rem;font-weight:600;
+    letter-spacing:.04em;transition:background .18s;
+  }
+  #pw-gate button:hover{background:var(--accent);}
+  body.locked{overflow:hidden;}
   body{
     font-family:var(--sans);
     color:var(--ink);
@@ -428,10 +470,50 @@
   </div>
 </footer>
 
+<div id="pw-gate" aria-modal="true" role="dialog" aria-label="Password required">
+  <div class="gate-box">
+    <div class="gate-logo">Høiland<span>.</span>Advisory</div>
+    <label for="pw-input">Enter password to continue</label>
+    <input id="pw-input" type="password" autocomplete="current-password" autofocus>
+    <div class="gate-err" id="pw-err" role="alert"></div>
+    <button id="pw-btn">Continue</button>
+  </div>
+</div>
+
 <script>
   document.getElementById('yr').textContent=new Date().getFullYear();
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
   document.querySelectorAll('.reveal').forEach(function(el,i){el.style.transitionDelay=(i%4*60)+'ms';io.observe(el)});
+
+  (function(){
+    var HASH='79eb90150d6783a7732ad5f8e5bbf8ce53fa69db63719a7198a6c7900c22d004';
+    var gate=document.getElementById('pw-gate');
+    var inp=document.getElementById('pw-input');
+    var err=document.getElementById('pw-err');
+
+    if(sessionStorage.getItem('ha_auth')==='1'){gate.style.display='none';return;}
+    document.body.classList.add('locked');
+
+    function hex(buf){return Array.from(new Uint8Array(buf)).map(function(b){return b.toString(16).padStart(2,'0')}).join('');}
+
+    function attempt(){
+      var val=inp.value;
+      if(!val){err.textContent='Please enter a password.';return;}
+      crypto.subtle.digest('SHA-256',new TextEncoder().encode(val)).then(function(buf){
+        if(hex(buf)===HASH){
+          sessionStorage.setItem('ha_auth','1');
+          gate.style.display='none';
+          document.body.classList.remove('locked');
+        } else {
+          err.textContent='Incorrect password. Please try again.';
+          inp.value='';inp.focus();
+        }
+      });
+    }
+
+    document.getElementById('pw-btn').addEventListener('click',attempt);
+    inp.addEventListener('keydown',function(e){if(e.key==='Enter')attempt();});
+  })();
 </script>
 </body>
 </html>
