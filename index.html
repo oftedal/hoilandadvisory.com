@@ -101,7 +101,6 @@
   h1.hero-title em{font-style:italic;color:var(--accent-deep)}
   .hero-sub{font-size:18.5px;line-height:1.62;color:var(--ink-soft);max-width:33ch;margin-bottom:34px}
   .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-  .hero-note{font-size:13.5px;color:var(--ink-mute);margin-left:4px}
 
   .portrait-wrap{position:relative}
   .portrait{
@@ -169,7 +168,7 @@
   .speaking{background:var(--paper-2)}
   .speaking-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:36px}
   .speak-card{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--white)}
-  .speak-img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center top;display:block}
+  .speak-img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center top;display:block;transition:transform .4s ease}
   .speak-cap{padding:18px 22px}
   .speak-venue{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:5px}
   .speak-title{font-family:var(--serif);font-size:17px;font-weight:500;color:var(--ink);line-height:1.3}
@@ -177,7 +176,6 @@
   .speak-card-link{display:block;text-decoration:none;color:inherit}
   .speak-card-link:hover .speak-card{border-color:var(--accent);box-shadow:0 4px 20px -8px rgba(29,78,216,.2)}
   .speak-card-link:hover .speak-img{transform:scale(1.03)}
-  .speak-img{transition:transform .4s ease}
   .rsac-badge{display:block;height:160px;width:auto}
   @media(max-width:880px){.speaking-grid{grid-template-columns:1fr}}
 
@@ -253,6 +251,64 @@
   }
   @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://hoilandadvisory.com/#practice",
+      "name": "Hoiland Advisory",
+      "url": "https://hoilandadvisory.com/",
+      "description": "Executive cybersecurity advisory helping boards and leadership teams secure AI, cloud and SaaS transformation.",
+      "email": "elisabeth@hoilandadvisory.com",
+      "image": "https://hoilandadvisory.com/assets/nato_panel.jpeg",
+      "areaServed": "Global",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Oslo",
+        "addressCountry": "NO"
+      },
+      "founder": { "@id": "https://hoilandadvisory.com/#elisabeth" },
+      "knowsAbout": [
+        "Cybersecurity governance",
+        "Enterprise risk management",
+        "Cyber resilience",
+        "AI security",
+        "Cloud and SaaS security",
+        "Board advisory"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://hoilandadvisory.com/#elisabeth",
+      "name": "Elisabeth H\u00f8iland",
+      "jobTitle": "Founder & Principal Advisor",
+      "description": "Board-level CISO advising leadership teams on business-aligned cybersecurity, governance and resilience.",
+      "url": "https://hoilandadvisory.com/",
+      "image": "https://hoilandadvisory.com/assets/portrait.jpg",
+      "worksFor": { "@id": "https://hoilandadvisory.com/#practice" },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Oslo",
+        "addressCountry": "NO"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/elisabethhoiland/",
+        "https://www.rsaconference.com/experts/elisabeth-hoiland"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://hoilandadvisory.com/#website",
+      "url": "https://hoilandadvisory.com/",
+      "name": "Hoiland Advisory",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://hoilandadvisory.com/#practice" }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
