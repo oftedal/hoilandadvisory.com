@@ -5,6 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hoiland Advisory: Business-aligned cybersecurity leadership</title>
 <meta name="description" content="Hoiland Advisory is the practice of Elisabeth Høiland, a business-oriented CISO helping boards and executive teams secure AI-driven, cloud-native and SaaS transformation.">
+<link rel="canonical" href="https://hoilandadvisory.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hoilandadvisory.com/">
+<meta property="og:site_name" content="Hoiland Advisory">
+<meta property="og:title" content="Hoiland Advisory: Business-aligned cybersecurity leadership">
+<meta property="og:description" content="The practice of Elisabeth Høiland, a board-level CISO helping leadership teams secure AI, cloud and SaaS transformation.">
+<meta property="og:image" content="https://hoilandadvisory.com/assets/nato_panel.jpeg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="853">
+<meta property="og:image:alt" content="Elisabeth Høiland speaking on a panel at NATO CYCON">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hoiland Advisory: Business-aligned cybersecurity leadership">
+<meta name="twitter:description" content="The practice of Elisabeth Høiland, a board-level CISO helping leadership teams secure AI, cloud and SaaS transformation.">
+<meta name="twitter:image" content="https://hoilandadvisory.com/assets/nato_panel.jpeg">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -192,6 +207,24 @@
   .foot-mark{color:var(--ink-mute)}
   .foot-meta{font-size:13px;color:var(--ink-mute)}
 
+  /* mobile nav */
+  .nav-toggle{
+    display:none;place-items:center;
+    width:40px;height:40px;margin-right:-8px;
+    background:transparent;border:none;cursor:pointer;color:var(--ink);
+    border-radius:8px;transition:background .2s;
+  }
+  .nav-toggle:hover{background:var(--line-soft)}
+  .nav-toggle svg{width:22px;height:22px}
+  .mobile-nav{border-top:1px solid var(--line-soft);background:var(--paper-2)}
+  .mobile-nav .wrap{display:flex;flex-direction:column;padding-top:6px;padding-bottom:12px}
+  .mobile-nav a{
+    padding:13px 0;font-size:15px;color:var(--ink-soft);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .mobile-nav a:last-child{border-bottom:none}
+  .mobile-nav a:hover{color:var(--ink)}
+
   /* reveal */
   .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
   .reveal.in{opacity:1;transform:none}
@@ -208,6 +241,7 @@
     .proof-item:nth-child(1),.proof-item:nth-child(2){border-bottom:1px solid var(--line-soft)}
     .contact-card{grid-template-columns:1fr;padding:44px 34px;gap:32px}
     .nav-links .link{display:none}
+    .nav-toggle{display:grid}
   }
   @media(max-width:560px){
     .wrap{padding:0 22px}
@@ -235,6 +269,17 @@
       <a class="link" href="#approach">Approach</a>
       <a class="btn btn-dark" href="#contact">Get in touch</a>
     </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobileNav" hidden>
+    <div class="wrap">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#speaking">Speaking</a>
+      <a href="#approach">Approach</a>
+    </div>
   </div>
 </header>
 
@@ -299,41 +344,6 @@
     </div>
   </section>
 
-  <!-- SPEAKING -->
-  <section class="block speaking" id="speaking">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <div class="sec-kicker">Speaking</div>
-        <h2 class="sec-title">Engaging audiences at the highest level.</h2>
-      </div>
-      <div class="speaking-grid">
-        <a class="speak-card-link reveal" href="https://ccdcoe.org/cycon/" target="_blank" rel="noopener">
-          <div class="speak-card">
-            <img class="speak-img" src="assets/nato_panel.jpeg" alt="Elisabeth Høiland speaking at NATO CYCON panel">
-            <div class="speak-cap">
-              <div class="speak-venue">NATO</div>
-              <div class="speak-title">NATO CYCON: International Conference on Cyber Conflict</div>
-              <div class="speak-meta">Panel speaker on cybersecurity leadership and resilience</div>
-            </div>
-          </div>
-        </a>
-        <a class="speak-card-link reveal" href="https://www.rsaconference.com/experts/elisabeth-hoiland" target="_blank" rel="noopener">
-          <div class="speak-card">
-            <img class="speak-img" src="assets/rsac_clf.jpeg" alt="Elisabeth Høiland speaking at RSAC Cyber Leaders Forum">
-            <div class="speak-cap">
-              <div class="speak-venue">RSAC Conference</div>
-              <div class="speak-title">RSAC Cyber Leaders Forum</div>
-              <div class="speak-meta">Speaker and Program Committee member, Cyber Leadership Forum</div>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="reveal">
-        <img class="rsac-badge" src="assets/RSAC%20Cyber%20Leaders%20Badge.png" alt="RSAC Cyber Leaders Forum Program Committee badge">
-      </div>
-    </div>
-  </section>
-
   <!-- SERVICES -->
   <section class="block services" id="services">
     <div class="wrap">
@@ -366,6 +376,41 @@
           <h3>Board advisory</h3>
           <p>Executive risk communication that translates technical exposure into clear choices for leadership teams and boards.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEAKING -->
+  <section class="block speaking" id="speaking">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-kicker">Speaking</div>
+        <h2 class="sec-title">Engaging audiences at the highest level.</h2>
+      </div>
+      <div class="speaking-grid">
+        <a class="speak-card-link reveal" href="https://ccdcoe.org/cycon/" target="_blank" rel="noopener">
+          <div class="speak-card">
+            <img class="speak-img" src="assets/nato_panel.jpeg" alt="Elisabeth Høiland speaking at NATO CYCON panel">
+            <div class="speak-cap">
+              <div class="speak-venue">NATO</div>
+              <div class="speak-title">NATO CYCON: International Conference on Cyber Conflict</div>
+              <div class="speak-meta">Panel speaker on cybersecurity leadership and resilience</div>
+            </div>
+          </div>
+        </a>
+        <a class="speak-card-link reveal" href="https://www.rsaconference.com/experts/elisabeth-hoiland" target="_blank" rel="noopener">
+          <div class="speak-card">
+            <img class="speak-img" src="assets/rsac_clf.jpeg" alt="Elisabeth Høiland speaking at RSAC Cyber Leaders Forum">
+            <div class="speak-cap">
+              <div class="speak-venue">RSAC Conference</div>
+              <div class="speak-title">RSAC Cyber Leaders Forum</div>
+              <div class="speak-meta">Speaker and Program Committee member, Cyber Leadership Forum</div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="reveal">
+        <img class="rsac-badge" src="assets/RSAC%20Cyber%20Leaders%20Badge.png" alt="RSAC Cyber Leaders Forum Program Committee badge">
       </div>
     </div>
   </section>
@@ -430,6 +475,19 @@
 
 <script>
   document.getElementById('yr').textContent=new Date().getFullYear();
+
+  (function(){
+    var btn=document.getElementById('navToggle'),panel=document.getElementById('mobileNav');
+    function set(open){
+      panel.hidden=!open;
+      btn.setAttribute('aria-expanded',open?'true':'false');
+      btn.setAttribute('aria-label',open?'Close menu':'Open menu');
+    }
+    btn.addEventListener('click',function(){set(panel.hidden)});
+    panel.addEventListener('click',function(e){if(e.target.tagName==='A')set(false)});
+    addEventListener('keydown',function(e){if(e.key==='Escape'&&!panel.hidden){set(false);btn.focus()}});
+    matchMedia('(min-width:881px)').addEventListener('change',function(e){if(e.matches)set(false)});
+  })();
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
   document.querySelectorAll('.reveal').forEach(function(el,i){el.style.transitionDelay=(i%4*60)+'ms';io.observe(el)});
 </script>
